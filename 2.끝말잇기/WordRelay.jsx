@@ -1,16 +1,56 @@
-const React = require("react");
+const React = require('react');
 const { Component } = React;
 
 class WordRelay extends Component {
   state = {
-    word: "레이초",
-    value: "",
-    result: ""
+    word: '레이초',
+    value: '',
+    result: ''
   };
 
   render() {
-    return <h1>{this.state.text}</h1>;
+    return (
+      <>
+        <div>{this.state.word}</div>
+        <form onSubmit={this.onSubmitForm}>
+          <input
+            ref={this.onRefInput}
+            value={this.state.value}
+            onChange={this.onChangeInput}
+          />
+          <button>클릭!!</button>
+        </form>
+        <div>{this.state.result}</div>
+      </>
+    );
   }
+
+  onSubmitForm = e => {
+    e.preventDefault();
+    if (this.state.word[this.state.word.length - 1] === this.state.value[0]) {
+      this.setState({
+        result: '딩동댕',
+        word: this.state.value,
+        value: ''
+      });
+    } else {
+      this.setState({
+        result: '땡',
+        value: ''
+      });
+    }
+    this.input.focus();
+  };
+
+  input;
+
+  onRefInput = c => {
+    this.input = c;
+  };
+
+  onChangeInput = e => {
+    this.setState({ value: e.target.value });
+  };
 }
 
 module.exports = WordRelay;
