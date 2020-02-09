@@ -3,13 +3,13 @@ const webpack = require('webpack');
 
 module.exports = {
   mode: 'development',
-  devtool: 'eval', // 빠르게 하겠다, hidden-source-map
+  devtool: 'eval', // 빠르게 하겠다, 실서비스: hidden-source-map
   resolve: {
-    extensions: ['.jsx', '.js'],
+    extensions: ['.jsx', '.js'] // entry > app 확장자 생략가능
   },
 
   entry: {
-    app: './client',
+    app: './client'
   },
   module: {
     rules: [
@@ -19,22 +19,25 @@ module.exports = {
         options: {
           presets: [
             [
-              '@babel/preset-env', {
-              targets: {
-                browsers: ['> 5% in KR', 'last 2 chrome versions'], // browserslist
-              },
-              debug: true,
-            }],
-            '@babel/preset-react'],
-          plugins: [],
-        },
-      }],
+              '@babel/preset-env',
+              {
+                targets: {
+                  browsers: ['> 5% in KR', 'last 2 chrome versions'] // browserslist
+                },
+                debug: true
+              }
+            ],
+            '@babel/preset-react'
+          ],
+          plugins: []
+        }
+      }
+    ]
   },
-  plugins: [
-    new webpack.LoaderOptionsPlugin({debug: true}),
-  ],
-  output: { // 중요
+  plugins: [new webpack.LoaderOptionsPlugin({ debug: true })],
+  output: {
+    // 중요
     path: path.join(__dirname, 'dist'), // 경로를 합쳐줌, C:\..\react-webgame\lecture\dist를 자동으로 만들어줌
-    filename: 'app.js',
-  }, // 출력
+    filename: 'app.js'
+  } // 출력
 };
