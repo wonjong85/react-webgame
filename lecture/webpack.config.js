@@ -2,7 +2,6 @@ const path = require('path'); // 경로를 가져오는 것
 const webpack = require('webpack');
 
 module.exports = {
-  name: 'wordrelay-setting',
   mode: 'development', // 실서비스: production
   devtool: 'eval', // 빠르게 하겠다, 실서비스: hidden-source-map
   resolve: {
@@ -43,7 +42,8 @@ module.exports = {
   plugins: [new webpack.LoaderOptionsPlugin({ debug: true })],
   output: {
     // 중요
-    path: path.join(__dirname, 'dist'), // 경로를 합쳐줌, C:\..\react-webgame\lecture\dist를 자동으로 만들어줌, __dirname은 현재폴더
-    filename: 'app.js'
+    path: path.join(__dirname, 'dist'), // 실제 경로, 경로를 합쳐줌, C:\..\react-webgame\lecture\dist를 자동으로 만들어줌, __dirname은 현재폴더
+    filename: 'app.js',
+    publicPath: '/dist/', // 가상 경로
   } // 출력
 };
