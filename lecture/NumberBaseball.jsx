@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PureComponent } from 'react';
 import Try from './Try';
 
 function getNumbers() {
@@ -12,7 +12,7 @@ function getNumbers() {
   return array;
 }
 
-class NumberBaseball extends Component {
+class NumberBaseball extends PureComponent {
   state = {
     result: '',
     value: '',
@@ -74,6 +74,7 @@ class NumberBaseball extends Component {
   };
 
   render() {
+    console.log('렌더링');
     return (
       <>
         <h1>결과: {this.state.result}</h1>
