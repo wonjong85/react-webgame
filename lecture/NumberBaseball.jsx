@@ -1,4 +1,4 @@
-import React, { Component, PureComponent } from 'react';
+import React, { Component, PureComponent, createRef } from 'react';
 import Try from './Try';
 
 function getNumbers() {
@@ -65,6 +65,7 @@ class NumberBaseball extends PureComponent {
         });
       }
     }
+    this.inputRef.current.focus();
   };
 
   onChangeInput = e => {
@@ -73,6 +74,12 @@ class NumberBaseball extends PureComponent {
     });
   };
 
+  inputRef = createRef(); // ref의 기능만.
+  // onInputRef = c => {
+  //   // 함수로 만들면 다른 기능을 추가 가능
+  //   this.inputRef = c;
+  // };
+
   render() {
     console.log('렌더링');
     return (
@@ -80,6 +87,7 @@ class NumberBaseball extends PureComponent {
         <h1>결과: {this.state.result}</h1>
         <form onSubmit={this.onSubmitForm}>
           <input
+            ref={this.inputRef}
             maxLength={4}
             value={this.state.value}
             onChange={this.onChangeInput}
