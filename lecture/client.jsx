@@ -7,7 +7,8 @@ import NumberBaseballHooks from './NumberBaseballHooks';
 import RenderTest from './RenderTest';
 import ResponseCheck from './ResponseCheck';
 import ResponseCheckHooks from './ResponseCheckHooks';
+import RSP from './RSP';
 
-const Hot = hot(ResponseCheckHooks);
+const Hot = hot(RSP);
 
 ReactDom.render(<Hot />, document.querySelector('#root'));
