@@ -8,7 +8,8 @@ import RenderTest from './RenderTest';
 import ResponseCheck from './ResponseCheck';
 import ResponseCheckHooks from './ResponseCheckHooks';
 import RSP from './RSP';
+import RSPHooks from './RSPHooks';
 
-const Hot = hot(RSP);
+const Hot = hot(RSPHooks);
 
 ReactDom.render(<Hot />, document.querySelector('#root'));

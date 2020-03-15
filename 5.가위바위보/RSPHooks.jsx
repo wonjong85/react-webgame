@@ -18,7 +18,7 @@ const computerChoice = (imgCoord) => {
   })[0];
 };
 
-const RSP = () => {
+const RSPHooks = () => {
   const [result, setResult] = useState('');
   const [imgCoord, setImgCoord] = useState(rspCoords.바위);
   const [score, setScore] = useState(0);
@@ -74,4 +74,4 @@ const RSP = () => {
   );
 };
 
-export default RSP;
+export default RSPHooks;
