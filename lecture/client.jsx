@@ -9,7 +9,8 @@ import ResponseCheck from './ResponseCheck';
 import ResponseCheckHooks from './ResponseCheckHooks';
 import RSP from './RSP';
 import RSPHooks from './RSPHooks';
+import Lotto from './Lotto';
 
-const Hot = hot(RSPHooks);
+const Hot = hot(Lotto);
 
 ReactDom.render(<Hot />, document.querySelector('#root'));
