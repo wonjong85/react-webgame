@@ -35,7 +35,6 @@ const initialState = {
 };
 
 const plantMine = (row, cell, mine) => {
-  console.log(row, cell, mine);
   const candidate = Array(row * cell).fill().map((arr, i) => {
     return i;
   });
@@ -57,7 +56,6 @@ const plantMine = (row, cell, mine) => {
     const hor = shuffle[k] % cell;
     data[ver][hor] = CODE.MINE;
   }
-  console.log('tableData:', data);
   return data;
 };
 
@@ -139,7 +137,6 @@ const reducer = (state, action) => {
       checkAround(action.row, action.cell);
       let halted = false;
       let result = '';
-      console.log('opened:', state.data.row * state.data.cell - state.data.mine, ' state.openedCount:', state.openedCount, ' openedCount:', openedCount);
       if (state.data.row * state.data.cell - state.data.mine === state.openedCount + openedCount) { // 승리
         halted = true;
         result = `${state.timer}초만에 승리하셨습니다.`;
